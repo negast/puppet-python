@@ -220,7 +220,7 @@ define python::pip (
       default: {
         # Anti-action, uninstall.
         $command = "echo y | ${pip_env} uninstall ${uninstall_args} ${proxy_flag} ${name}"
-        $unless_command = "! ${pip_env} list | grep -i -e '${grep_regex}'"
+        $unless_command = "echo '! ${pip_env} list | grep -i -e \'${grep_regex}\'' | bash"
       }
     }
   }
